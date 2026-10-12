@@ -1,96 +1,47 @@
-# Satyam Sharma's Portfolio
+# Satyam Sharma · Portfolio
 
-Welcome to the source code for **Satyam Sharma's** personal portfolio website, showcasing his background, skills, projects, and contact information. This single-page application is built with simple, clean, and modern web technologies.
+Source for **https://monkeydcoder.github.io/**: my research and projects in reinforcement learning, as a
+master's student at the Institute of Science Tokyo.
 
-## 📍 Live Demo
+Built with Next.js 15 (static export), React 19, Tailwind CSS 3 and TypeScript. No backend, no tracking.
 
-* [View the live portfolio](https://monkeydcoder.github.io/)
+## Updating the site
 
-## 🛠️ Built With
+All text, links and project data live in one file: [`src/data/site.ts`](src/data/site.ts).
 
-* **HTML5** for semantic markup
-* **CSS3** for styling and responsive design
-* **JavaScript (ES6+)** for smooth navigation and interactivity
-* **GitHub Pages** for hosting and continuous deployment
+1. Edit `src/data/site.ts` (or replace files in `public/`, e.g. the résumé PDF).
+2. Commit and push to `main`.
+3. GitHub Actions ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) builds the site and publishes it
+   to GitHub Pages. It is live about two minutes later; progress shows in the repository's **Actions** tab.
 
-## 🚀 Features
+## Running locally
 
-* **Home**: Introduction with name, title, and resume link
-* **About**: Brief bio, academic achievements, and research interests
-* **Skills**: Categorized list of technical and domain skills
-* **Projects**: Highlighted featured projects with demo and code links
-* **Education**: Academic timeline with coursework and honors
-* **Contact**: Contact form, email, phone, and social links
-* **Responsive Design**: Mobile-friendly layout with smooth scrolling
+Requires Node.js 18.18 or newer.
 
-## 📁 Repository Structure
-
-```
-monkeydcoder.github.io/
-├── assets/               # Images and static assets
-├── css/
-│   └── styles.css        # Main stylesheet
-├── js/
-│   └── main.js           # Smooth scrolling and interactivity scripts
-├── index.html            # Entry point for the portfolio
-└── README.md             # This file
+```bash
+npm install
+npm run dev        # http://localhost:3000, live reload
+npm run build      # static site written to out/
+npm run preview    # serve out/ at http://localhost:4173
 ```
 
-> Note: Filenames and folder structure may vary slightly.
+## Layout
 
-## 💻 Getting Started
+```
+src/
+  app/            layout (fonts, metadata), page, 404, icon, robots, sitemap
+  components/     one file per section, plus GridWorld (hero animation) and ProjectMedia
+  data/site.ts    every piece of content on the site
+  styles/         global CSS and design tokens
+public/
+  images/         profile photo and project stills (pre-sized; the export has no image optimiser)
+  videos/         Earth Docker demo
+  Satyam_Sharma_Resume.pdf
+```
 
-### Prerequisites
+## Notes
 
-* A modern web browser (Chrome, Firefox, Safari, Edge)
-* [Node.js](https://nodejs.org/) (optional, for local HTTP server)
-
-### Local Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/monkeydcoder/monkeydcoder.github.io.git
-   ```
-2. **Navigate into the folder**
-
-   ```bash
-   cd monkeydcoder.github.io
-   ```
-3. **Open `index.html`**
-
-   * Double-click to open in your default browser, or
-   * Serve with a local server:
-
-     ```bash
-     npx serve .
-     ```
-
-### Deployment
-
-This site is automatically deployed to GitHub Pages. To update:
-
-1. Commit your changes to the `main` branch.
-2. Push to GitHub:
-
-   ```bash
-   git add .
-   git commit -m "Update portfolio content"
-   git push origin main
-   ```
-3. Visit `https://monkeydcoder.github.io/` to see the updates.
-
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to open an issue or submit a pull request for improvements.
-
-## 📫 Contact
-
-* **Email**: [satyamsharma3002@gmail.com](mailto:satyamsharma3002@gmail.com)
-* **Phone**: +91 77000 76418
-* **GitHub**: [monkeydcoder](https://github.com/monkeydcoder)
-* **LinkedIn**: [Satyam Sharma](https://linkedin.com/in/satyam-sharma-24463522a)
-
----
-
-*Designed & developed by Satyam Sharma*
+- Images are served as-is, so resize them before adding (the profile photo is 640 px wide, about 115 KB).
+- `npm audit` reports advisories in build-time tooling (PostCSS inside Next.js, Tailwind's file watcher). None of
+  that code ships to visitors. Clearing them fully needs Next.js 16, which requires Node 20+.
+- The hero animation is a scripted illustration of the MiniGrid DoorKey task, not a trained agent.

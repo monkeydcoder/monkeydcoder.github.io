@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Next.js build output (the site is built by GitHub Actions, never committed)
+.next/
+out/
+*.tsbuildinfo
+
+# Local-only originals of media (full-size photo, etc.); not published
+_originals/
+
+# Tooling
+.gstack/
+
+# OS
+.DS_Store

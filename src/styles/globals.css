@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #0b0d12;
+  --accent: #ff6a4d;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* keep anchored headings clear of the fixed nav */
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: #ece9e3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(255, 106, 77, 0.35);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[0.72rem] uppercase tracking-[0.18em] text-faint;
+  }
+
+  .section {
+    @apply relative py-20 sm:py-28;
+  }
+
+  .section-title {
+    @apply font-serif text-[2.1rem] leading-[1.1] text-paper sm:text-5xl;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/[0.07] bg-ink-850/80;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 font-mono text-[0.7rem] leading-[1.35] text-muted;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-medium transition-colors duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-ink-950 hover:bg-accent-soft;
+  }
+
+  .btn-ghost {
+    @apply btn border border-white/15 text-paper hover:border-white/35 hover:bg-white/[0.04];
+  }
+
+  .link-underline {
+    @apply underline decoration-white/25 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+}
+
+/* Subtle film grain + top glow for depth, drawn once behind everything. */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, rgba(255, 106, 77, 0.10), transparent 60%),
+    radial-gradient(50rem 35rem at -10% 20%, rgba(95, 191, 143, 0.05), transparent 60%),
+    var(--bg);
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
+}
+
+/* Reveal on scroll, using scroll-driven animations where supported (no JS).
+   Browsers without support simply show the content. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@media print {
+  .reveal {
+    animation: none !important;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

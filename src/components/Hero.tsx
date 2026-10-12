@@ -1,0 +1,87 @@
+import { LuArrowRight, LuFileText, LuMail, LuMapPin } from 'react-icons/lu';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import GridWorld from '@/components/GridWorld';
+import { profile } from '@/data/site';
+
+const EMPHASIS = 'what matters';
+
+function Tagline({ text }: { text: string }) {
+  const at = text.indexOf(EMPHASIS);
+  if (at < 0) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, at)}
+      <em className="font-serif text-[1.08em] italic text-accent">{EMPHASIS}</em>
+      {text.slice(at + EMPHASIS.length)}
+    </>
+  );
+}
+
+const socials = [
+  { label: 'GitHub', href: profile.github, icon: FaGithub },
+  { label: 'LinkedIn', href: profile.linkedin, icon: FaLinkedinIn },
+  { label: 'Email', href: `mailto:${profile.email}`, icon: LuMail },
+];
+
+export default function Hero() {
+  return (
+    <section id="top" className="relative overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-36">
+      <div className="grid-lines pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
+      <div className="container grid items-center gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
+        <div>
+          <p className="inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 font-mono text-[0.7rem] text-muted sm:rounded-full">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-jade opacity-60 motion-reduce:hidden" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-jade" />
+            </span>
+            {profile.status}
+          </p>
+
+          <h1 className="mt-6 font-serif text-[3.4rem] leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-[5.5rem]">
+            {profile.name}
+          </h1>
+
+          <p className="mt-6 max-w-xl text-balance text-xl leading-snug text-paper/90 sm:text-2xl">
+            <Tagline text={profile.tagline} />
+          </p>
+
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-[1.05rem]">{profile.intro}</p>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#research" className="btn-primary">
+              See my research <LuArrowRight aria-hidden="true" />
+            </a>
+            <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost">
+              <LuFileText aria-hidden="true" /> Résumé (PDF)
+            </a>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+            <ul className="flex items-center gap-1">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    target={href.startsWith('http') ? '_blank' : undefined}
+                    rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    aria-label={label}
+                    className="flex h-11 w-11 items-center justify-center rounded-full text-lg text-muted transition-colors hover:bg-white/[0.05] hover:text-paper"
+                  >
+                    <Icon aria-hidden="true" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <span className="flex items-center gap-1.5 font-mono text-xs text-faint">
+              <LuMapPin aria-hidden="true" /> {profile.location}
+            </span>
+          </div>
+        </div>
+
+        <div className="mx-auto w-full max-w-[460px] lg:max-w-none">
+          <GridWorld />
+        </div>
+      </div>
+    </section>
+  );
+}
