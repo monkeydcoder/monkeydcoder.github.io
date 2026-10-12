@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-36">
       <div className="grid-lines pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
-      <div className="container grid items-center gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
+      <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
         <div>
           <p className="inline-flex items-center gap-2 rounded-xl border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 font-mono text-[0.7rem] text-muted sm:rounded-full">
             <span className="relative flex h-1.5 w-1.5">
@@ -37,7 +37,7 @@ export default function Hero() {
             {profile.status}
           </p>
 
-          <h1 className="mt-6 font-serif text-[3.4rem] leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 font-serif text-[clamp(2.75rem,14vw,3.4rem)] leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-[5.5rem]">
             {profile.name}
           </h1>
 

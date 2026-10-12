@@ -50,7 +50,7 @@ export default function Research() {
           {research.stages.map((st) => (
             <li
               key={st.step}
-              className="reveal grid gap-4 md:grid-cols-[12rem_1fr] md:gap-10"
+              className="reveal grid grid-cols-1 gap-4 md:grid-cols-[12rem_minmax(0,1fr)] md:gap-10"
             >
               <div className="flex items-baseline gap-3 md:flex-col md:gap-1 md:pt-6">
                 <span className="font-mono text-sm text-accent">{st.step}</span>
@@ -87,7 +87,7 @@ export default function Research() {
         {/* practice */}
         <div className="mt-20 sm:mt-24">
           <h3 className="reveal eyebrow">How I work</h3>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {research.practice.map((p, i) => (
               <article key={p.title} className="reveal card p-6">
                 <p className="font-mono text-xs text-faint">{String(i + 1).padStart(2, '0')}</p>

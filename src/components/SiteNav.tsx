@@ -51,7 +51,7 @@ export default function SiteNav() {
       }`}
     >
       <nav className="container flex h-16 items-center justify-between" aria-label="Main">
-        <a href="#top" className="group flex items-baseline gap-2 whitespace-nowrap" onClick={() => setOpen(false)}>
+        <a href="#top" className="group flex min-h-[44px] items-center gap-2 whitespace-nowrap" onClick={() => setOpen(false)}>
           <span className="font-serif text-xl text-paper">{profile.name}</span>
           <span className="hidden font-mono text-[0.68rem] text-faint transition-colors group-hover:text-accent sm:inline">
             RL · Tokyo

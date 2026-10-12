@@ -8,7 +8,7 @@ export default function About() {
       <div className="container">
         <SectionHeading index="01" label="About" title={about.heading} />
 
-        <div className="grid gap-10 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-14 lg:gap-20">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-14 lg:gap-20">
           <div className="reveal">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-[18rem] overflow-hidden rounded-2xl border border-white/[0.08] sm:max-w-sm md:max-w-none">
               <Image

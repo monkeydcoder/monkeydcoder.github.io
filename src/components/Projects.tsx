@@ -26,7 +26,7 @@ export default function Projects() {
           </p>
         </SectionHeading>
 
-        <ul className="grid gap-6 md:grid-cols-2">
+        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((p) => (
             <li key={p.title} className="reveal">
               <article className="card flex h-full flex-col overflow-hidden">

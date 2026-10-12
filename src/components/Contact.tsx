@@ -16,7 +16,7 @@ export default function Contact() {
         <div className="reveal card relative overflow-hidden px-6 py-12 sm:px-12 sm:py-16">
           <div className="grid-lines pointer-events-none absolute inset-0" aria-hidden="true" />
           <div
-            className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-accent/15 blur-3xl"
+            className="pointer-events-none absolute -bottom-40 -right-40 h-[28rem] w-[28rem] bg-[radial-gradient(closest-side,rgba(255,106,77,0.16),transparent)]"
             aria-hidden="true"
           />
           <div className="relative">
@@ -42,7 +42,7 @@ export default function Contact() {
               <CopyEmail email={profile.email} />
             </div>
 
-            <ul className="mt-10 grid gap-3 sm:grid-cols-3">
+            <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
               {channels.map(({ label, value, href, icon: Icon }) => (
                 <li key={label}>
                   <a

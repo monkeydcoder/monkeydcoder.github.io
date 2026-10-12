@@ -51,7 +51,7 @@ export default function Education() {
               )}
 
               {e.courses.length > 0 && (
-                <div className="mt-6 grid gap-5 border-t border-white/[0.06] pt-6 sm:grid-cols-2 sm:pl-[3.25rem]">
+                <div className="mt-6 grid grid-cols-1 gap-5 border-t border-white/[0.06] pt-6 sm:grid-cols-2 sm:pl-[3.25rem]">
                   {e.courses.map((c) => (
                     <div key={c.group}>
                       <p className="eyebrow">{c.group}</p>
@@ -70,11 +70,11 @@ export default function Education() {
           ))}
         </ol>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           {awards.map((a) => (
             <article key={a.title} className="reveal card relative overflow-hidden p-6 sm:p-8">
               <div
-                className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-accent/10 blur-3xl"
+                className="pointer-events-none absolute -right-28 -top-28 h-80 w-80 bg-[radial-gradient(closest-side,rgba(255,106,77,0.13),transparent)]"
                 aria-hidden="true"
               />
               <p className="eyebrow flex items-center gap-2">

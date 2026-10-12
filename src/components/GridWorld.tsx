@@ -457,7 +457,7 @@ export default function GridWorld() {
 
   return (
     <figure className="card overflow-hidden p-4 sm:p-5">
-      <div className="mb-3 flex items-center justify-between gap-3">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <span className="eyebrow">MiniGrid · DoorKey</span>
         <span className="flex items-center gap-3 font-mono text-[0.7rem] text-faint" aria-hidden="true">
           <span>step {String(steps).padStart(2, '0')}</span>

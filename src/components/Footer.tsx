@@ -14,11 +14,11 @@ export default function Footer() {
             href="https://github.com/monkeydcoder/monkeydcoder.github.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-colors hover:text-paper"
+            className="inline-flex min-h-[44px] items-center transition-colors hover:text-paper"
           >
             Source on GitHub
           </a>
-          <a href="#top" className="inline-flex items-center gap-1.5 transition-colors hover:text-paper">
+          <a href="#top" className="inline-flex min-h-[44px] items-center gap-1.5 transition-colors hover:text-paper">
             Back to top <LuArrowUp aria-hidden="true" />
           </a>
         </div>

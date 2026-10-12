@@ -8,7 +8,7 @@ export default function Skills() {
       <div className="container">
         <SectionHeading index="05" label="Skills" title="The toolkit, and where I've led." />
 
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((s) => (
             <div key={s.group} className="reveal bg-ink-900 p-6">
               <h3 className="eyebrow text-muted">{s.group}</h3>
@@ -27,11 +27,11 @@ export default function Skills() {
           <h3 className="reveal eyebrow">Leadership & activities</h3>
           <ul className="mt-6 divide-y divide-white/[0.06] border-y border-white/[0.06]">
             {leadership.map((l) => (
-              <li key={l.role + l.org} className="reveal grid gap-2 py-6 md:grid-cols-[1fr_1.4fr] md:gap-10">
+              <li key={l.role + l.org} className="reveal grid grid-cols-1 gap-2 py-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:gap-10">
                 <div>
                   <p className="text-paper">
                     {l.href ? (
-                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1.5 hover:text-accent">
+                      <a href={l.href} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[40px] items-center gap-1.5 hover:text-accent">
                         {l.role} <LuArrowUpRight className="text-faint group-hover:text-accent" aria-hidden="true" />
                       </a>
                     ) : (
