@@ -47,9 +47,10 @@ export default function SiteNav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? 'border-b border-white/[0.06] bg-ink-900/80 backdrop-blur-md' : 'border-b border-transparent'
+        scrolled || open ? 'border-b border-white/[0.06] bg-ink-900/[0.88] backdrop-blur-md' : 'border-b border-transparent'
       }`}
     >
+      <div className="scroll-progress" aria-hidden="true" />
       <nav className="container flex h-16 items-center justify-between" aria-label="Main">
         <a href="#top" className="group flex min-h-[44px] items-center gap-2 whitespace-nowrap" onClick={() => setOpen(false)}>
           <span className="font-serif text-xl text-paper">{profile.name}</span>
@@ -64,8 +65,8 @@ export default function SiteNav() {
               <a
                 href={n.href}
                 aria-current={active === n.href ? 'true' : undefined}
-                className={`rounded-full px-3 py-2 text-sm transition-colors ${
-                  active === n.href ? 'text-paper' : 'text-muted hover:text-paper'
+                className={`relative rounded-full px-3 py-2 text-sm transition-colors after:absolute after:inset-x-3 after:bottom-0.5 after:h-px after:origin-left after:bg-accent after:transition-transform after:duration-300 ${
+                  active === n.href ? 'text-paper after:scale-x-100' : 'text-muted after:scale-x-0 hover:text-paper'
                 }`}
               >
                 {n.label}

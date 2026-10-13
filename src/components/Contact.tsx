@@ -49,7 +49,7 @@ export default function Contact() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-between gap-3 rounded-xl border border-white/[0.08] bg-ink-950/40 px-4 py-3.5 transition-colors hover:border-white/25"
+                    className="group flex items-center justify-between gap-3 rounded-xl border border-white/[0.08] bg-ink-950/40 px-4 py-3.5 transition-colors duration-300 hover:border-accent/40 hover:bg-accent/[0.04]"
                   >
                     <span className="flex items-center gap-3">
                       <Icon aria-hidden="true" />
@@ -58,7 +58,7 @@ export default function Contact() {
                         <span className="block font-mono text-[0.68rem] text-faint">{value}</span>
                       </span>
                     </span>
-                    <LuArrowUpRight className="text-faint transition-colors group-hover:text-accent" aria-hidden="true" />
+                    <LuArrowUpRight className="link-arrow text-faint group-hover:text-accent" aria-hidden="true" />
                   </a>
                 </li>
               ))}

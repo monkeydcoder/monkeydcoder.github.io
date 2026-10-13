@@ -45,11 +45,11 @@ body {
   }
 
   .section-title {
-    @apply font-serif text-[2.1rem] leading-[1.1] text-paper sm:text-5xl;
+    @apply font-serif text-[2.1rem] leading-[1.1] text-paper sm:text-5xl xl:text-[3.5rem];
   }
 
   .card {
-    @apply rounded-2xl border border-white/[0.07] bg-ink-850/80;
+    @apply relative rounded-2xl border border-white/[0.07] bg-ink-850/80;
   }
 
   .chip {
@@ -57,19 +57,114 @@ body {
   }
 
   .btn {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-medium transition-colors duration-200;
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 text-sm font-medium transition-[background-color,border-color,box-shadow,transform] duration-300 active:translate-y-px lg:min-h-[48px] lg:px-6 lg:text-[0.95rem];
   }
 
   .btn-primary {
-    @apply btn bg-accent text-ink-950 hover:bg-accent-soft;
+    @apply btn bg-accent text-ink-950 hover:bg-accent-soft hover:shadow-[0_12px_32px_-12px_rgba(255,106,77,0.75),0_0_0_1px_rgba(255,106,77,0.35)];
   }
 
   .btn-ghost {
-    @apply btn border border-white/15 text-paper hover:border-white/35 hover:bg-white/[0.04];
+    @apply btn border border-white/15 text-paper hover:border-accent/50 hover:bg-accent/[0.06];
   }
 
+  /* arrow icons inside buttons and links nudge toward where they lead */
+  .btn-arrow {
+    @apply transition-transform duration-300 group-hover:translate-x-[3px];
+  }
+
+  .link-arrow {
+    @apply transition-transform duration-300 group-hover:-translate-y-[2px] group-hover:translate-x-[2px];
+  }
+
+  /* underline that draws in, in accent, over a faint resting underline */
   .link-underline {
-    @apply underline decoration-white/25 underline-offset-4 transition-colors hover:decoration-accent;
+    background-image: linear-gradient(var(--accent), var(--accent)), linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25));
+    background-size: 0% 1px, 100% 1px;
+    background-position: 0 100%, 0 100%;
+    background-repeat: no-repeat;
+    padding-bottom: 2px;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .link-underline:hover {
+      background-size: 100% 1px, 100% 1px;
+    }
+  }
+}
+
+/* ── Pointer effects (added by PointerEffects on mouse/trackpad devices only) ── */
+
+/* soft light that follows the cursor; moved with transform, so it never repaints */
+.cursor-light {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  width: 1100px;
+  height: 1100px;
+  margin: -550px 0 0 -550px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  will-change: transform;
+  background: radial-gradient(closest-side, rgba(255, 106, 77, 0.1), rgba(255, 106, 77, 0.04) 45%, transparent 100%);
+}
+html:not(.pointer-fx) .cursor-light {
+  display: none;
+}
+
+/* cards: border lights up near the cursor, plus a faint wash of light inside */
+html.pointer-fx .card::before,
+html.pointer-fx .card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+html.pointer-fx .card::before {
+  z-index: 3;
+  padding: 1px;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 106, 77, 0.6), transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+html.pointer-fx .card::after {
+  z-index: 2;
+  background: radial-gradient(460px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 106, 77, 0.05), transparent 65%);
+}
+html.pointer-fx .card:hover::before,
+html.pointer-fx .card:hover::after {
+  opacity: 1;
+}
+
+/* thin reading-progress line under the nav (scroll-driven; hidden where unsupported) */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, rgba(255, 106, 77, 0.2), var(--accent) 60%, #f2b84b);
+}
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-progress {
+      animation: scroll-progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+@keyframes scroll-progress {
+  to {
+    transform: scaleX(1);
   }
 }
 

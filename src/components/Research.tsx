@@ -24,9 +24,9 @@ export default function Research() {
             href={profile.lab.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center gap-1.5 self-start font-mono text-xs text-paper transition-colors hover:text-accent sm:self-center"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start font-mono text-xs text-paper transition-colors hover:text-accent sm:self-center"
           >
-            {profile.lab.name} <LuArrowUpRight aria-hidden="true" />
+            {profile.lab.name} <LuArrowUpRight className="link-arrow" aria-hidden="true" />
           </a>
         </div>
 

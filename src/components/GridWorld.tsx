@@ -164,7 +164,7 @@ function ease(t: number) {
   return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
 }
 
-function draw(ctx: CanvasRenderingContext2D, s: Sim, cell: number, reduced: boolean) {
+function draw(ctx: CanvasRenderingContext2D, s: Sim, cell: number, reduced: boolean, hover: Pt | null = null) {
   const { layout } = s;
   const W = COLS * cell;
   const H = ROWS * cell;
@@ -201,6 +201,19 @@ function draw(ctx: CanvasRenderingContext2D, s: Sim, cell: number, reduced: bool
     ctx.moveTo(cell, y * cell + 0.5);
     ctx.lineTo(W - cell, y * cell + 0.5);
     ctx.stroke();
+  }
+
+  // cell under the visitor's mouse
+  if (hover) {
+    const [hx, hy] = hover;
+    const isWall = hx <= 0 || hy <= 0 || hx >= COLS - 1 || hy >= ROWS - 1 || (hx === layout.wallX && hy !== layout.doorY);
+    if (!isWall) {
+      ctx.fillStyle = 'rgba(255,106,77,0.08)';
+      ctx.fillRect(hx * cell + 1, hy * cell + 1, cell - 2, cell - 2);
+      ctx.strokeStyle = 'rgba(255,106,77,0.45)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(hx * cell + 1.5, hy * cell + 1.5, cell - 3, cell - 3);
+    }
   }
 
   // planned route (reduced motion only) or the agent's recent trail
@@ -323,6 +336,8 @@ function draw(ctx: CanvasRenderingContext2D, s: Sim, cell: number, reduced: bool
 export default function GridWorld() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hoverRef = useRef<Pt | null>(null);
+  const cellRef = useRef(32);
   const [chain, setChain] = useState<Chain>({ key: false, door: false, goal: false });
   const [steps, setSteps] = useState(0);
 
@@ -344,6 +359,7 @@ export default function GridWorld() {
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
       cell = Math.floor(wrap.clientWidth / COLS);
+      cellRef.current = cell;
       canvas.style.width = `${cell * COLS}px`;
       canvas.style.height = `${cell * ROWS}px`;
       canvas.width = cell * COLS * dpr;
@@ -411,7 +427,7 @@ export default function GridWorld() {
         }
       }
       if (sim.fade < 1 && sim.actions[sim.index]?.kind !== 'goal') sim.fade = Math.min(1, sim.fade + dt / FADE_MS);
-      draw(ctx, sim, cell, false);
+      draw(ctx, sim, cell, false, hoverRef.current);
       if (visible) raf = requestAnimationFrame(tick);
     };
 
@@ -473,6 +489,15 @@ export default function GridWorld() {
           role="img"
           aria-label="Animated grid world: an agent picks up a key, unlocks a door and reaches a green goal square. The reward is given only at the goal."
           className="block"
+          onPointerMove={(e) => {
+            if (e.pointerType === 'touch') return;
+            const r = e.currentTarget.getBoundingClientRect();
+            const c = cellRef.current;
+            hoverRef.current = [Math.floor((e.clientX - r.left) / c), Math.floor((e.clientY - r.top) / c)];
+          }}
+          onPointerLeave={() => {
+            hoverRef.current = null;
+          }}
         />
       </div>
       <ol className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-[0.7rem]">

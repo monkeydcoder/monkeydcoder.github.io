@@ -101,7 +101,7 @@ export default function Education() {
                       <span className="block text-paper transition-colors group-hover:text-accent">{c.title}</span>
                       <span className="mt-0.5 block text-sm text-faint">{c.org}</span>
                     </span>
-                    <LuArrowUpRight className="mt-1 shrink-0 text-faint group-hover:text-accent" aria-hidden="true" />
+                    <LuArrowUpRight className="link-arrow mt-1 shrink-0 text-faint group-hover:text-accent" aria-hidden="true" />
                   </a>
                 </li>
               ))}

@@ -1,11 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // hover: styles apply only on devices with a real pointer (no sticky hover after a tap on phones)
+  future: { hoverOnlyWhenSupported: true },
   content: ['./src/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,
       padding: { DEFAULT: '1.25rem', sm: '1.5rem', lg: '2rem' },
-      screens: { '2xl': '1200px' },
+      screens: { '2xl': '1280px' },
     },
     extend: {
       colors: {

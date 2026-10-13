@@ -32,7 +32,7 @@ export default function Skills() {
                   <p className="text-paper">
                     {l.href ? (
                       <a href={l.href} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[40px] items-center gap-1.5 hover:text-accent">
-                        {l.role} <LuArrowUpRight className="text-faint group-hover:text-accent" aria-hidden="true" />
+                        {l.role} <LuArrowUpRight className="link-arrow text-faint group-hover:text-accent" aria-hidden="true" />
                       </a>
                     ) : (
                       l.role

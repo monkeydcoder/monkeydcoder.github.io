@@ -29,7 +29,7 @@ export default function Projects() {
         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projects.map((p) => (
             <li key={p.title} className="reveal">
-              <article className="card flex h-full flex-col overflow-hidden">
+              <article className="card group/card flex h-full flex-col overflow-hidden transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-white/[0.12] hover:shadow-[0_30px_60px_-35px_rgba(0,0,0,0.9)]">
                 <ProjectMedia media={p.media} title={p.title} />
                 <div className="flex flex-1 flex-col p-6 sm:p-7">
                   <p className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-faint">{p.kind}</p>
@@ -59,11 +59,11 @@ export default function Projects() {
                           href={l.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex min-h-[40px] items-center gap-2 text-sm text-paper transition-colors hover:text-accent"
+                          className="group inline-flex min-h-[40px] items-center gap-2 text-sm text-paper transition-colors hover:text-accent"
                         >
                           <Icon aria-hidden={true} />
                           {l.label}
-                          <LuArrowUpRight className="text-faint" aria-hidden="true" />
+                          <LuArrowUpRight className="link-arrow text-faint group-hover:text-accent" aria-hidden="true" />
                         </a>
                       );
                     })}

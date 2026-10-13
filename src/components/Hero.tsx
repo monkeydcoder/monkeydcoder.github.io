@@ -25,7 +25,7 @@ const socials = [
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-36">
+    <section id="top" className="relative flex flex-col justify-center overflow-hidden pb-20 pt-28 sm:pb-28 sm:pt-36 lg:min-h-[100svh] lg:pb-24 lg:pt-28">
       <div className="grid-lines pointer-events-none absolute inset-0 -z-10" aria-hidden="true" />
       <div className="container grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
         <div>
@@ -37,19 +37,19 @@ export default function Hero() {
             {profile.status}
           </p>
 
-          <h1 className="mt-6 font-serif text-[clamp(2.75rem,14vw,3.4rem)] leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-[5.5rem]">
+          <h1 className="mt-6 font-serif text-[clamp(2.75rem,14vw,3.4rem)] leading-[0.95] tracking-tight text-paper sm:text-7xl lg:text-[6rem] xl:text-[7rem]">
             {profile.name}
           </h1>
 
-          <p className="mt-6 max-w-xl text-balance text-xl leading-snug text-paper/90 sm:text-2xl">
+          <p className="mt-6 max-w-xl text-balance text-xl leading-snug text-paper/90 sm:text-2xl xl:max-w-2xl xl:text-[1.85rem]">
             <Tagline text={profile.tagline} />
           </p>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-[1.05rem]">{profile.intro}</p>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted sm:text-[1.05rem] xl:text-lg">{profile.intro}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#research" className="btn-primary">
-              See my research <LuArrowRight aria-hidden="true" />
+            <a href="#research" className="btn-primary group">
+              See my research <LuArrowRight className="btn-arrow" aria-hidden="true" />
             </a>
             <a href={profile.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost">
               <LuFileText aria-hidden="true" /> Résumé (PDF)
@@ -82,6 +82,14 @@ export default function Hero() {
           <GridWorld />
         </div>
       </div>
+      <a
+        href="#about"
+        className="group absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint transition-colors hover:text-paper lg:flex"
+        aria-label="Scroll to About"
+      >
+        scroll
+        <span className="block h-8 w-px bg-gradient-to-b from-white/30 to-transparent transition-colors group-hover:from-accent" />
+      </a>
     </section>
   );
 }

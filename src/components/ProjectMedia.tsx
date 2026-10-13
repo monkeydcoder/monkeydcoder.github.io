@@ -29,7 +29,7 @@ function Poster({ src, alt, dim = false }: { src: string; alt: string; dim?: boo
       alt={alt}
       loading="lazy"
       decoding="async"
-      className={`h-full w-full object-cover object-top ${dim ? 'brightness-[0.72]' : ''}`}
+      className={`h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover/card:scale-[1.03] ${dim ? 'brightness-[0.72]' : ''}`}
     />
   );
 }
