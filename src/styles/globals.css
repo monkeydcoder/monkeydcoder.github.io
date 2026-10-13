@@ -204,6 +204,10 @@ html.pointer-fx .card:hover::after {
   .reveal {
     animation: none !important;
   }
+  .cursor-light,
+  .scroll-progress {
+    display: none !important;
+  }
 }
 
 @keyframes reveal-up {

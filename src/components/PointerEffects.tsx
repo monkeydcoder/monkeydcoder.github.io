@@ -26,6 +26,18 @@ export default function PointerEffects() {
     let card: HTMLElement | null = null;
     let cardX = 0;
     let cardY = 0;
+    let lastX = -1;
+    let lastY = -1;
+
+    const locateCard = (target: Element | null, cx: number, cy: number) => {
+      const hit = (target?.closest?.('.card') as HTMLElement | null) ?? null;
+      card = hit;
+      if (hit) {
+        const r = hit.getBoundingClientRect();
+        cardX = cx - r.left;
+        cardY = cy - r.top;
+      }
+    };
 
     const tick = () => {
       // ease toward the pointer so the light glides instead of snapping
@@ -41,26 +53,27 @@ export default function PointerEffects() {
 
     const onMove = (e: PointerEvent) => {
       if (e.pointerType === 'touch') return;
-      targetX = e.clientX;
-      targetY = e.clientY;
-      const hit = (e.target as Element | null)?.closest?.('.card') as HTMLElement | null;
-      card = hit;
-      if (hit) {
-        const r = hit.getBoundingClientRect();
-        cardX = e.clientX - r.left;
-        cardY = e.clientY - r.top;
-      }
+      targetX = lastX = e.clientX;
+      targetY = lastY = e.clientY;
+      locateCard(e.target as Element | null, e.clientX, e.clientY);
       light.style.opacity = '1';
       if (!raf) raf = requestAnimationFrame(tick);
     };
     const onLeave = () => {
       light.style.opacity = '0';
     };
+    const onScroll = () => {
+      if (lastX < 0) return;
+      locateCard(document.elementFromPoint(lastX, lastY), lastX, lastY);
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
 
     window.addEventListener('pointermove', onMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     root.addEventListener('mouseleave', onLeave);
     return () => {
       window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('scroll', onScroll);
       root.removeEventListener('mouseleave', onLeave);
       cancelAnimationFrame(raf);
       root.classList.remove('pointer-fx');
