@@ -47,7 +47,7 @@ export default function SiteNav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? 'border-b border-white/[0.06] bg-ink-900/[0.88] backdrop-blur-md' : 'border-b border-transparent'
+        scrolled || open ? 'border-b border-white/[0.06] bg-ink-900/[0.95] backdrop-blur-md' : 'border-b border-transparent'
       }`}
     >
       <div className="scroll-progress" aria-hidden="true" />
