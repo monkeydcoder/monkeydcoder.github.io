@@ -186,15 +186,43 @@ export const projects: Project[] = [
     },
   },
   {
-    title: 'Two-Day Travel Planner',
-    kind: 'Optimisation · course team project',
+    title: 'Reel Vault',
+    kind: 'Full-stack LLM tool · 2026',
     summary:
-      'A two-day Tokyo itinerary over **45 candidate places**, formulated as an integer linear program that trades off ratings, variety, energy and budget.',
-    points: ['Found a **provably optimal plan**, cross-checked it with a dynamic-programming formulation and presented it with a live demo.'],
-    tech: ['Python', 'Integer linear programming', 'Dynamic programming'],
+      'Turns saved Instagram reels and carousels into a searchable, mapped knowledge base: one "5 best ramen spots" post becomes five place cards, sorted into categories and pinned on a map.',
+    points: [
+      'Extraction escalates only when it must (caption, then speech transcription, then vision on slides or frames), with daily caps checked before every paid call so it runs **entirely on free tiers**.',
+      'FastAPI and SQLite back end, React front end with a MapLibre map, installable on a phone as a share target; **293 automated tests**.',
+    ],
+    tech: ['Python', 'FastAPI', 'SQLite', 'React', 'Gemini', 'Whisper', 'MapLibre'],
     links: [],
-    note: 'Course project · slides on request',
-    media: { type: 'pattern', variant: 'route', caption: '45 places · 2 days · 1 optimal plan' },
+    note: 'Personal tool · code private',
+    media: { type: 'pattern', variant: 'pipeline', caption: 'reel → items → categories → map' },
+  },
+  {
+    title: 'ResearchMate AI',
+    kind: 'LLM app · 2025',
+    summary:
+      'A research assistant that **runs locally** on Ollama and Llama 3, so papers never have to leave your machine.',
+    points: [
+      'Paper analysis, research-trend tracking, citation generation, research-question brainstorming and literature maps in one interface.',
+      'React and Redux front end with React Flow for literature maps; Node.js and Express back end talking to Ollama.',
+    ],
+    tech: ['React', 'Redux', 'React Flow', 'Node.js', 'Express', 'Ollama'],
+    links: [
+      { label: 'Code', href: 'https://github.com/monkeydcoder/researchmate-ai', kind: 'code' },
+      {
+        label: 'Demo video',
+        href: 'https://www.loom.com/share/f0cf23e5e03546e5875df76d9d26199b',
+        kind: 'video',
+      },
+    ],
+    media: {
+      type: 'loom',
+      embed: 'https://www.loom.com/embed/f0cf23e5e03546e5875df76d9d26199b?hideEmbedTopBar=true&autoplay=1',
+      poster: '/images/projects/researchmate.jpg',
+      alt: 'ResearchMate AI landing page',
+    },
   },
   {
     title: 'Earth Docker',
@@ -238,43 +266,19 @@ export const projects: Project[] = [
     },
   },
   {
-    title: 'ResearchMate AI',
-    kind: 'LLM app · 2025',
+    title: '3D Anime Village',
+    kind: 'Three.js · for fun · 2026',
     summary:
-      'A research assistant that **runs locally** on Ollama and Llama 3, so papers never have to leave your machine.',
-    points: [
-      'Paper analysis, research-trend tracking, citation generation, research-question brainstorming and literature maps in one interface.',
-      'React and Redux front end with React Flow for literature maps; Node.js and Express back end talking to Ollama.',
-    ],
-    tech: ['React', 'Redux', 'React Flow', 'Node.js', 'Express', 'Ollama'],
-    links: [
-      { label: 'Code', href: 'https://github.com/monkeydcoder/researchmate-ai', kind: 'code' },
-      {
-        label: 'Demo video',
-        href: 'https://www.loom.com/share/f0cf23e5e03546e5875df76d9d26199b',
-        kind: 'video',
-      },
-    ],
+      'An experimental portfolio as a scroll-driven walk through an anime village at dusk: torii gate, lanterns, cherry blossoms, a reflective pond and fireflies.',
+    points: ['Built to learn real-time 3D on the web with React Three Fiber, drei and post-processing.'],
+    tech: ['Three.js', 'React Three Fiber', 'Vite', 'Tailwind CSS'],
+    links: [{ label: 'Code', href: 'https://github.com/monkeydcoder/3js_Portfolio', kind: 'code' }],
     media: {
-      type: 'loom',
-      embed: 'https://www.loom.com/embed/f0cf23e5e03546e5875df76d9d26199b?hideEmbedTopBar=true&autoplay=1',
-      poster: '/images/projects/researchmate.jpg',
-      alt: 'ResearchMate AI landing page',
+      type: 'gif',
+      src: '/images/projects/anime-village.gif',
+      poster: '/images/projects/anime-village.jpg',
+      alt: 'Night-time 3D anime village with a torii gate and lanterns',
     },
-  },
-  {
-    title: 'Reel Vault',
-    kind: 'Full-stack LLM tool · 2026',
-    summary:
-      'Turns saved Instagram reels and carousels into a searchable, mapped knowledge base: one "5 best ramen spots" post becomes five place cards, sorted into categories and pinned on a map.',
-    points: [
-      'Extraction escalates only when it must (caption, then speech transcription, then vision on slides or frames), with daily caps checked before every paid call so it runs **entirely on free tiers**.',
-      'FastAPI and SQLite back end, React front end with a MapLibre map, installable on a phone as a share target; **293 automated tests**.',
-    ],
-    tech: ['Python', 'FastAPI', 'SQLite', 'React', 'Gemini', 'Whisper', 'MapLibre'],
-    links: [],
-    note: 'Personal tool · code private',
-    media: { type: 'pattern', variant: 'pipeline', caption: 'reel → items → categories → map' },
   },
   {
     title: 'NLP & data notebooks',
@@ -292,19 +296,15 @@ export const projects: Project[] = [
     media: { type: 'pattern', variant: 'pipeline', caption: 'text → features → classifier' },
   },
   {
-    title: '3D Anime Village',
-    kind: 'Three.js · for fun · 2026',
+    title: 'Two-Day Travel Planner',
+    kind: 'Optimisation · course team project',
     summary:
-      'An experimental portfolio as a scroll-driven walk through an anime village at dusk: torii gate, lanterns, cherry blossoms, a reflective pond and fireflies.',
-    points: ['Built to learn real-time 3D on the web with React Three Fiber, drei and post-processing.'],
-    tech: ['Three.js', 'React Three Fiber', 'Vite', 'Tailwind CSS'],
-    links: [{ label: 'Code', href: 'https://github.com/monkeydcoder/3js_Portfolio', kind: 'code' }],
-    media: {
-      type: 'gif',
-      src: '/images/projects/anime-village.gif',
-      poster: '/images/projects/anime-village.jpg',
-      alt: 'Night-time 3D anime village with a torii gate and lanterns',
-    },
+      'A two-day Tokyo itinerary over **45 candidate places**, formulated as an integer linear program that trades off ratings, variety, energy and budget.',
+    points: ['Found a **provably optimal plan**, cross-checked it with a dynamic-programming formulation and presented it with a live demo.'],
+    tech: ['Python', 'Integer linear programming', 'Dynamic programming'],
+    links: [],
+    note: 'Course project · slides on request',
+    media: { type: 'pattern', variant: 'route', caption: '45 places · 2 days · 1 optimal plan' },
   },
 ];
 
@@ -323,19 +323,19 @@ export const education = [
     courses: [
       {
         group: 'Machine learning & AI',
-        items: ['From Data Analytics to Machine Learning', 'Intelligent Systems Engineering'],
-      },
-      {
-        group: 'Engineering & economics',
-        items: ['Value Creation', 'Financial Literacy', 'Affect in Social Context'],
-      },
-      {
-        group: 'Japanese language & culture',
-        items: ['Basic Japanese 3', 'Basic Japanese 4', 'Japanese Culture 2'],
+        items: ['Intelligent Systems Engineering', 'From Data Analytics to Machine Learning'],
       },
       {
         group: 'Research',
         items: ['Seminar in Industrial Engineering and Economics', 'Reading in Industrial Engineering and Economics'],
+      },
+      {
+        group: 'Engineering & economics',
+        items: ['Affect in Social Context', 'Value Creation', 'Financial Literacy'],
+      },
+      {
+        group: 'Japanese language & culture',
+        items: ['Basic Japanese 4', 'Basic Japanese 3', 'Japanese Culture 2'],
       },
     ],
   },
@@ -363,17 +363,17 @@ export const education = [
       {
         group: 'Core',
         items: [
-          'Data Structures & Algorithms',
           'Machine Learning',
           'Artificial Intelligence',
+          'Data Structures & Algorithms',
           'Database Management Systems',
-          'Computer Networks',
           'Operating Systems',
+          'Computer Networks',
         ],
       },
       {
         group: 'Honours',
-        items: ['Data Analytics', 'Internet of Things', 'Optimization Techniques', 'Cryptography & Network Security'],
+        items: ['Optimization Techniques', 'Data Analytics', 'Internet of Things', 'Cryptography & Network Security'],
       },
     ],
   },
@@ -404,7 +404,7 @@ export const certifications = [
 export const skills = [
   {
     group: 'Reinforcement learning',
-    items: ['PPO', 'DQN', 'SAC', 'Reward shaping', 'Stable-Baselines3', 'Gymnasium', 'MiniGrid'],
+    items: ['PPO', 'Reward shaping', 'DQN', 'SAC', 'Stable-Baselines3', 'Gymnasium', 'MiniGrid'],
   },
   {
     group: 'Machine learning',
