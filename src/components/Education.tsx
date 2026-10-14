@@ -1,12 +1,13 @@
 import { LuArrowUpRight, LuAward, LuGraduationCap } from 'react-icons/lu';
 import SectionHeading from '@/components/SectionHeading';
-import { education, awards, certifications, profile } from '@/data/site';
+import Rich from '@/components/Rich';
+import { education, awards, certifications } from '@/data/site';
 
 export default function Education() {
   return (
     <section id="education" className="section">
       <div className="container">
-        <SectionHeading index="04" label="Education" title="Tokyo now, Punjab before." />
+        <SectionHeading index="04" label="Education" title="Education and scholarship" />
 
         <ol className="space-y-6">
           {education.map((e) => (
@@ -18,15 +19,15 @@ export default function Education() {
                   </span>
                   <div>
                     <h3 className="text-lg font-medium leading-snug text-paper sm:text-xl">{e.degree}</h3>
-                    <p className="mt-1 text-muted">
+                    <p className="mt-1 text-[1.02rem] text-muted">
                       {e.school}
                       {e.note && <span className="text-faint"> · {e.note}</span>}
                     </p>
-                    {e.focus && <p className="mt-1 text-sm text-faint">Focus: {e.focus}</p>}
+                    {e.focus && <p className="mt-1 text-[0.95rem] text-faint">Focus: {e.focus}</p>}
                   </div>
                 </div>
-                <div className="pl-[3.25rem] font-mono text-xs leading-relaxed text-faint sm:pl-0 sm:text-right">
-                  <p className="text-paper/80">{e.period}</p>
+                <div className="pl-[3.25rem] font-mono text-[0.8rem] leading-relaxed text-faint sm:pl-0 sm:text-right">
+                  <p className="text-paper/90">{e.period}</p>
                   <p>{e.place}</p>
                 </div>
               </div>
@@ -34,17 +35,8 @@ export default function Education() {
               {e.highlights.length > 0 && (
                 <ul className="mt-5 space-y-1.5 pl-[3.25rem]">
                   {e.highlights.map((h) => (
-                    <li key={h} className="text-sm leading-relaxed text-paper/85 sm:text-[0.95rem]">
-                      {h.includes('Prof. Ryutaro Ichise') ? (
-                        <>
-                          <a href={profile.lab.url} target="_blank" rel="noopener noreferrer" className="link-underline">
-                            {profile.lab.name}
-                          </a>
-                          {h.replace(profile.lab.name, '')}
-                        </>
-                      ) : (
-                        h
-                      )}
+                    <li key={h} className="text-[0.98rem] leading-relaxed text-paper/90 sm:text-[1.02rem]">
+                      <Rich text={h} />
                     </li>
                   ))}
                 </ul>
@@ -57,7 +49,7 @@ export default function Education() {
                       <p className="eyebrow">{c.group}</p>
                       <ul className="mt-2.5 flex flex-wrap gap-1.5">
                         {c.items.map((it) => (
-                          <li key={it} className="chip text-[0.72rem]">
+                          <li key={it} className="chip">
                             {it}
                           </li>
                         ))}
@@ -81,8 +73,10 @@ export default function Education() {
                 <LuAward className="text-accent" aria-hidden="true" /> Scholarship · {a.year}
               </p>
               <h3 className="mt-4 font-serif text-2xl leading-tight text-paper sm:text-3xl">{a.title}</h3>
-              <p className="mt-1 text-sm text-faint">{a.org}</p>
-              <p className="mt-4 leading-relaxed text-muted">{a.body}</p>
+              <p className="mt-1 text-[0.9rem] text-faint">{a.org}</p>
+              <p className="mt-4 text-[1.0625rem] leading-relaxed text-muted">
+                <Rich text={a.body} />
+              </p>
             </article>
           ))}
 
@@ -99,7 +93,7 @@ export default function Education() {
                   >
                     <span>
                       <span className="block text-paper transition-colors group-hover:text-accent">{c.title}</span>
-                      <span className="mt-0.5 block text-sm text-faint">{c.org}</span>
+                      <span className="mt-0.5 block text-[0.9rem] text-faint">{c.org}</span>
                     </span>
                     <LuArrowUpRight className="link-arrow mt-1 shrink-0 text-faint group-hover:text-accent" aria-hidden="true" />
                   </a>

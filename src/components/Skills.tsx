@@ -6,7 +6,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section">
       <div className="container">
-        <SectionHeading index="05" label="Skills" title="The toolkit, and where I've led." />
+        <SectionHeading index="05" label="Skills" title="Skills and leadership" />
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
           {skills.map((s) => (
@@ -14,7 +14,7 @@ export default function Skills() {
               <h3 className="eyebrow text-muted">{s.group}</h3>
               <ul className="mt-4 flex flex-wrap gap-1.5">
                 {s.items.map((it) => (
-                  <li key={it} className="chip text-[0.74rem] text-paper/85">
+                  <li key={it} className="chip text-paper/90">
                     {it}
                   </li>
                 ))}
@@ -38,12 +38,12 @@ export default function Skills() {
                       l.role
                     )}
                   </p>
-                  <p className="mt-1 text-sm text-faint">
+                  <p className="mt-1 text-[0.9rem] text-faint">
                     {l.org}
-                    {l.period && <span className="font-mono text-xs"> · {l.period}</span>}
+                    {l.period && <span className="font-mono text-[0.8rem]"> · {l.period}</span>}
                   </p>
                 </div>
-                <p className="text-sm leading-relaxed text-muted sm:text-[0.95rem]">{l.body}</p>
+                <p className="text-[0.98rem] leading-relaxed text-muted sm:text-[1.02rem]">{l.body}</p>
               </li>
             ))}
           </ul>

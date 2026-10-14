@@ -26,7 +26,7 @@ export default function Contact() {
               Contact
             </p>
             <h2 className="mt-4 font-serif text-5xl leading-[1.02] text-paper sm:text-7xl">Let&apos;s talk.</h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-6 max-w-xl text-[1.0625rem] leading-relaxed text-muted sm:text-lg">
               I&apos;m open to conversations about machine-learning and reinforcement-learning internships, roles and
               research collaborations. Email is the quickest way to reach me.
             </p>
@@ -54,8 +54,8 @@ export default function Contact() {
                     <span className="flex items-center gap-3">
                       <Icon aria-hidden="true" />
                       <span>
-                        <span className="block text-sm text-paper">{label}</span>
-                        <span className="block font-mono text-[0.68rem] text-faint">{value}</span>
+                        <span className="block text-[0.95rem] text-paper">{label}</span>
+                        <span className="block font-mono text-[0.76rem] text-faint">{value}</span>
                       </span>
                     </span>
                     <LuArrowUpRight className="link-arrow text-faint group-hover:text-accent" aria-hidden="true" />
@@ -64,7 +64,7 @@ export default function Contact() {
               ))}
             </ul>
 
-            <p className="mt-8 flex items-center gap-2 font-mono text-xs text-faint">
+            <p className="mt-8 flex items-center gap-2 font-mono text-[0.8rem] text-faint">
               <LuMapPin aria-hidden="true" /> {profile.location} · JST (UTC+9)
             </p>
           </div>

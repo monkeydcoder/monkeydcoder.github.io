@@ -2,6 +2,10 @@
 //  All of the site's text and links live in this one file.
 //  To update the portfolio: edit here, commit, push to main. GitHub Actions
 //  rebuilds and redeploys https://monkeydcoder.github.io/ automatically.
+//
+//  Inline markup (rendered by components/Rich.tsx):
+//    **key fact**  brighter text for skimmers     {{phrase}}  accent italic
+//    [label](https://...)  external link
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const site = {
@@ -15,9 +19,14 @@ export const profile = {
   name: 'Satyam Sharma',
   location: 'Meguro, Tokyo',
   status: "M.S. student · Ichise Lab, Institute of Science Tokyo",
-  tagline: 'I build learning agents that work out what matters when the reward almost never comes.',
+  tagline: 'I build learning agents that work out {{what matters}} when the reward almost never comes.',
   intro:
-    "Master's student and MEXT scholar in Tokyo, researching memory for sparse-reward reinforcement learning. I care as much about rigorous, reproducible experiments as about the ideas they test.",
+    "**Master's student and MEXT scholar** in Tokyo. I research **memory for sparse-reward reinforcement learning**, and I care as much about reproducible experiments as about the ideas they test.",
+  glance: [
+    { value: 'MEXT 2025', label: 'scholar, 1 of 25 from India' },
+    { value: '3.83 / 4.5', label: 'M.S. GPA, first semester' },
+    { value: '~2,400', label: 'seeded RL training runs' },
+  ],
   email: 'satyamsharma3002@gmail.com',
   github: 'https://github.com/monkeydcoder',
   linkedin: 'https://www.linkedin.com/in/satyam-sharma-24463522a/',
@@ -28,16 +37,16 @@ export const profile = {
 };
 
 export const about = {
-  heading: 'From robots in cotton fields to agents in grid worlds.',
+  heading: 'I study reinforcement learning at the Institute of Science Tokyo.',
   paragraphs: [
-    "I'm a first-year master's student in Industrial Engineering and Economics at the Institute of Science Tokyo (formerly Tokyo Institute of Technology), where I research reinforcement learning in Prof. Ryutaro Ichise's lab. I came to Japan in October 2025 on the MEXT scholarship, as one of 25 Indian nationals selected that year, and spent six months as a research student before starting the master's program in April 2026.",
-    'Before Tokyo, I studied computer science at SLIET in Punjab, graduating with a B.E. (Honours) and a CGPA of 8.9/10. I ran the robotics club and built Earth Docker, a field robot that spots diseased cotton plants, which won institute funding while I was still in my second year. Building things that have to work outside a notebook taught me to test an idea hard before trusting it, and that habit now drives how I do research.',
-    "Right now I'm focused on agents that make good decisions from very little feedback, and on the experiments that separate real progress from lucky noise. I'm also interested in where reinforcement learning meets large language models.",
+    "I'm a **first-year master's student** in Industrial Engineering and Economics at the Institute of Science Tokyo (formerly Tokyo Tech), working in [Prof. Ryutaro Ichise's lab](https://www.ai.iee.eng.isct.ac.jp/). I came to Japan in October 2025 on the **MEXT scholarship**, one of 25 Indian nationals selected that year, and spent six months as a research student before the master's program began in April 2026.",
+    'Before that I studied computer science at SLIET in Punjab (**B.E. Honours, CGPA 8.9/10**). I ran the robotics club and built **Earth Docker**, a field robot that spots diseased cotton plants and won institute funding in my second year. Building things that had to work outside a notebook taught me to test ideas hard before trusting them.',
+    "These days I work on agents that make good decisions from very little feedback. I'm also interested in where reinforcement learning meets large language models.",
   ],
   facts: [
     { label: 'Based in', value: 'Meguro, Tokyo' },
     { label: 'Studying', value: "M.S., Institute of Science Tokyo (2026–2028)" },
-    { label: 'Lab', value: 'Ichise Laboratory' },
+    { label: 'Lab', value: 'Ichise Laboratory', href: 'https://www.ai.iee.eng.isct.ac.jp/' },
     { label: 'Scholarship', value: 'MEXT, Government of Japan' },
     { label: 'Languages', value: 'English · Japanese (around JLPT N4)' },
   ],
@@ -57,38 +66,38 @@ export type ResearchStage = {
 export const research = {
   title: 'What should an agent remember when rewards are rare?',
   intro: [
-    'In many real decision problems, the signal that you did well arrives only at the very end, after a long chain of correct steps. Standard deep RL methods such as PPO learn slowly, or not at all, in these sparse-reward settings: until the agent stumbles through the whole chain by luck, there is nothing to learn from.',
-    "My master's research asks what kind of memory helps an agent here, and whether it can discover the important steps by itself, without a person telling it what matters.",
+    'In many real decision problems, the signal that you did well arrives only at the end, after a long chain of correct steps. Standard deep RL methods such as PPO learn slowly or not at all in these **sparse-reward** settings, because until the agent stumbles through the whole chain by luck there is nothing to learn from.',
+    "My master's research asks **what kind of memory helps** here, and whether an agent can **find the important steps by itself**, without a person telling it what matters.",
   ],
   status:
-    "Ongoing master's thesis in the Ichise Laboratory. The code and data stay private until publication, but I'm always happy to walk through the work in a conversation.",
+    "Ongoing master's thesis in the Ichise Laboratory. The code and data stay private until publication, but I'm happy to walk through the work in a conversation.",
   stages: [
     {
       step: '01',
       period: 'Jul – Aug 2026',
       title: 'Memory as a learning signal',
-      body: 'I built a modular research codebase in Python and PyTorch that extends PPO with swappable memories: a knowledge graph, a flat episodic memory and a visit counter. All of them plug in through the same potential-based reward-shaping interface, so they can be compared fairly and none of them can change which behaviour is optimal.',
+      body: 'I built a modular PPO codebase in Python and PyTorch with swappable memories: a knowledge graph, a flat episodic memory and a visit counter. Each one plugs in through the same potential-based reward-shaping interface, so they can be compared fairly and none can change which behaviour is optimal.',
       findings: [
-        'A memory bonus turned DoorKey-8x8 from 3 to 22 or more successful runs out of 24 seeds.',
-        'The knowledge graph beat flat memory on DoorKey-6x6 (48 seeds, p\u00a0=\u00a00.0026) and reached the success threshold about 1.4x faster than plain PPO.',
-        'It did not carry over to other environments: the graph only noticed the events it had been told to look for. That limit became the next question.',
+        'A memory bonus turned DoorKey-8x8 from **3 to 22+ successful runs** out of 24 seeds.',
+        'The knowledge graph beat flat memory on DoorKey-6x6 (**48 seeds, p\u00a0=\u00a00.0026**) and reached the success threshold **about 1.4x faster** than plain PPO.',
+        'It did not carry over to other environments, because the graph only noticed events it had been told to look for. So the next step was to find events automatically.',
       ],
     },
     {
       step: '02',
       period: 'Oct 2026',
       title: 'Finding the important events automatically',
-      body: 'Next I built a domain-agnostic event detector. It knows nothing about keys, doors or goals; it sees the environment only as values that change, and has to recover the chain of events that success depends on. I scored it against true chains written down before any data was collected, including control environments where the correct answer is "nothing".',
+      body: 'Next I built a domain-agnostic event detector. It knows nothing about keys, doors or goals: it sees the environment only as values that change, and has to recover the chain of events that success depends on. I scored it against true chains written down before collecting any data, including control environments where the right answer is "nothing".',
       findings: [
-        'Recovered 7 of 7 ground-truth event chains.',
-        'Zero false chains on 3 of 3 control environments, across 10 environments and 50,000 random-play episodes each.',
+        'Recovered **7 of 7** ground-truth event chains.',
+        '**Zero false chains** on 3 of 3 control environments, across 10 environments and 50,000 random-play episodes each.',
       ],
     },
     {
       step: '03',
       period: 'Now',
       title: 'Does a discovered chain help an agent learn?',
-      body: 'The current experiment tests whether automatically discovered chains speed up learning, and whether they beat flat memory where chains matter. It is a pre-registered benchmark of about 4,300 runs and 52 billion environment steps, planned across two of the lab’s servers.',
+      body: "The current experiment tests whether automatically discovered chains speed up learning, and whether they beat flat memory where chains matter. It is a pre-registered benchmark of **about 4,300 runs and 52 billion environment steps**, planned across two of the lab's servers.",
       findings: [],
       current: true,
     },
@@ -101,20 +110,20 @@ export const research = {
   ],
   practice: [
     {
-      title: 'Predictions before data',
-      body: 'Every experiment has written hypotheses and pass/fail rules before any result exists, so a result can’t be explained away after the fact.',
+      title: 'Hypotheses written first',
+      body: "Every experiment has written predictions and pass/fail rules before any result exists, so a result can't be explained away afterwards.",
     },
     {
-      title: 'Replicate before believing',
-      body: 'Headline comparisons are re-run on fresh seeds, 48 per condition, and compared with paired statistical tests.',
+      title: 'Replication on fresh seeds',
+      body: 'Headline comparisons are re-run on **fresh seeds, 48 per condition**, and checked with paired statistical tests.',
     },
     {
-      title: 'Retract when it’s wrong',
-      body: 'When a reproducibility check failed (146,896 vs 160,672 steps), I traced it to an episode-boundary bug worth about 24,000 steps of false advantage, retracted my own headline result, fixed the code and re-validated it on fresh seeds.',
+      title: 'Retracting my own result',
+      body: 'When a reproducibility check failed (146,896 vs 160,672 steps), I traced it to an episode-boundary bug worth **about 24,000 steps of false advantage**. I retracted the headline result, fixed the code and re-validated it on fresh seeds.',
     },
     {
-      title: 'Reproducible to the bit',
-      body: 'After a full server wipe I restored every result and reproduced 32 of 32 runs exactly. I also fixed a thread-oversubscription problem that had slowed runs on a shared 96-thread server to 20 steps per second.',
+      title: 'Bit-for-bit reproduction',
+      body: 'After a full server wipe I restored every result and reproduced **32 of 32 runs exactly**. I also fixed a thread-oversubscription problem that had slowed runs on a shared 96-thread server to 20 steps per second.',
     },
   ],
   tools: [
@@ -129,7 +138,7 @@ export const research = {
     'Multi-core job scheduling',
     'Paired statistical tests',
   ],
-  seminar: 'I also present recent reinforcement learning and LLM papers in the lab’s regular seminar.',
+  seminar: "I also present recent reinforcement learning and LLM papers in the lab's regular seminar.",
 };
 
 export type ProjectLink = { label: string; href: string; kind: 'code' | 'video' | 'demo' | 'doc' };
@@ -155,11 +164,10 @@ export const projects: Project[] = [
     title: 'EduMind AI',
     kind: 'Full-stack LLM app · 2025',
     summary:
-      'An exam-preparation platform for Indian competitive exams (UPSC, SSC, GATE and more) built on LLaMA 3.1 and 3.2 running locally through Ollama.',
+      'An exam-preparation platform for Indian competitive exams (UPSC, SSC, GATE and more), built on **LLaMA 3.1 and 3.2 running locally** through Ollama.',
     points: [
       'AI tutor chat, practice tests, quiz generation, exam-pattern analysis and essay evaluation with structured feedback.',
-      'React, TypeScript and Material UI front end; Node.js and Express REST back end with a 30-minute response cache to avoid repeated model calls.',
-      'One-command start-up scripts for the back end, front end and its documentation site.',
+      'React, TypeScript and Material UI front end; Node.js and Express back end with a **30-minute response cache** to avoid repeated model calls.',
     ],
     tech: ['React', 'TypeScript', 'Material UI', 'Node.js', 'Express', 'Ollama', 'LLaMA 3'],
     links: [
@@ -181,11 +189,8 @@ export const projects: Project[] = [
     title: 'Two-Day Travel Planner',
     kind: 'Optimisation · course team project',
     summary:
-      'A two-day Tokyo itinerary over 45 candidate places, formulated as an integer linear program that trades off ratings, variety, energy and budget.',
-    points: [
-      'Cross-checked the solver with a dynamic-programming formulation.',
-      'Found a provably optimal plan under the constraints and presented it with a live demo.',
-    ],
+      'A two-day Tokyo itinerary over **45 candidate places**, formulated as an integer linear program that trades off ratings, variety, energy and budget.',
+    points: ['Found a **provably optimal plan**, cross-checked it with a dynamic-programming formulation and presented it with a live demo.'],
     tech: ['Python', 'Integer linear programming', 'Dynamic programming'],
     links: [],
     note: 'Course project · slides on request',
@@ -196,9 +201,9 @@ export const projects: Project[] = [
     kind: 'Robotics · computer vision · SLIET',
     summary: 'An autonomous farm robot that detects diseased cotton plants in the field.',
     points: [
-      'Trained a ResNet152V2 classifier to 98% accuracy on diseased vs healthy cotton plants and leaves.',
-      'Ran perception and RP-LiDAR navigation on a Raspberry Pi 4, on a rocker-bogie chassis with planetary-gear drive for uneven terrain.',
-      'Won ₹50,000 of institute funding as the only second-year team selected.',
+      'Trained a ResNet152V2 classifier to **98% accuracy** on diseased vs healthy cotton plants and leaves.',
+      'Ran perception and RP-LiDAR navigation on a Raspberry Pi 4, on a rocker-bogie chassis with planetary-gear drive.',
+      'Won **₹50,000 of institute funding** as the only second-year team selected.',
     ],
     tech: ['Python', 'TensorFlow / Keras', 'ResNet152V2', 'Raspberry Pi 4', 'RP-LiDAR'],
     links: [
@@ -218,9 +223,9 @@ export const projects: Project[] = [
   {
     title: 'KanjiPath',
     kind: 'Web app · 2026',
-    summary: 'A JLPT N5–N4 Japanese study app I built for my own learning, now open source.',
+    summary: 'A JLPT N5 and N4 Japanese study app I built for my own learning, now open source.',
     points: [
-      '247 kanji, 500+ vocabulary words and about 100 grammar patterns, with readings, example sentences and audio.',
+      '**247 kanji, 500+ words** and about 100 grammar patterns, with readings, example sentences and audio.',
       'Spaced-repetition flashcards on a five-box Leitner schedule, JLPT-style quizzes, a study streak and progress export.',
     ],
     tech: ['React', 'Vite', 'Tailwind CSS'],
@@ -236,7 +241,7 @@ export const projects: Project[] = [
     title: 'ResearchMate AI',
     kind: 'LLM app · 2025',
     summary:
-      'A research assistant that runs locally on Ollama and Llama 3, so papers never have to leave your machine.',
+      'A research assistant that **runs locally** on Ollama and Llama 3, so papers never have to leave your machine.',
     points: [
       'Paper analysis, research-trend tracking, citation generation, research-question brainstorming and literature maps in one interface.',
       'React and Redux front end with React Flow for literature maps; Node.js and Express back end talking to Ollama.',
@@ -263,9 +268,8 @@ export const projects: Project[] = [
     summary:
       'Turns saved Instagram reels and carousels into a searchable, mapped knowledge base: one "5 best ramen spots" post becomes five place cards, sorted into categories and pinned on a map.',
     points: [
-      'An extraction pipeline that escalates only when it must: caption first, then speech transcription, then vision on slides or video frames.',
-      'Daily caps checked before every paid call, and every fetch cached, so it runs entirely on free tiers.',
-      'FastAPI and SQLite back end, React front end with a MapLibre map, installable on a phone as a share target; 293 automated tests.',
+      'Extraction escalates only when it must (caption, then speech transcription, then vision on slides or frames), with daily caps checked before every paid call so it runs **entirely on free tiers**.',
+      'FastAPI and SQLite back end, React front end with a MapLibre map, installable on a phone as a share target; **293 automated tests**.',
     ],
     tech: ['Python', 'FastAPI', 'SQLite', 'React', 'Gemini', 'Whisper', 'MapLibre'],
     links: [],
@@ -275,10 +279,10 @@ export const projects: Project[] = [
   {
     title: 'NLP & data notebooks',
     kind: 'NLP · data collection',
-    summary: 'Hands-on NLP and data work from my machine-learning path.',
+    summary: 'Notebooks from learning NLP and data collection.',
     points: [
-      'Multi-class emotion detection with TF-IDF and n-gram features (Random Forest, Naive Bayes), reaching 94% accuracy.',
-      'Scraped and cleaned 10,000 company records (ratings, reviews, salaries) from AmbitionBox with requests and BeautifulSoup.',
+      'Multi-class emotion detection with TF-IDF and n-gram features (Random Forest, Naive Bayes), reaching **94% accuracy**.',
+      'Scraped and cleaned **10,000 company records** (ratings, reviews, salaries) from AmbitionBox with requests and BeautifulSoup.',
     ],
     tech: ['Python', 'scikit-learn', 'Pandas', 'BeautifulSoup'],
     links: [
@@ -313,8 +317,8 @@ export const education = [
     period: 'Apr 2026 – Mar 2028 (expected)',
     place: 'Tokyo, Japan',
     highlights: [
-      'Ichise Laboratory, supervised by Prof. Ryutaro Ichise.',
-      'GPA 3.83 / 4.5 after the first semester.',
+      '[Ichise Laboratory](https://www.ai.iee.eng.isct.ac.jp/), supervised by Prof. Ryutaro Ichise.',
+      'GPA **3.83 / 4.5** after the first semester.',
     ],
     courses: [
       {
@@ -354,7 +358,7 @@ export const education = [
     focus: '',
     period: 'Jul 2021 – Jun 2025',
     place: 'Longowal, Punjab, India',
-    highlights: ['Graduated with a CGPA of 8.9 / 10.', 'Completed the additional Honours track alongside the B.E. (2023 – 2025).'],
+    highlights: ['Graduated with a CGPA of **8.9 / 10**.', 'Completed the additional Honours track alongside the B.E. (2023 to 2025).'],
     courses: [
       {
         group: 'Core',
@@ -380,7 +384,7 @@ export const awards = [
     title: 'MEXT (Monbukagakusho) Scholarship',
     org: 'Ministry of Education, Culture, Sports, Science and Technology, Japan',
     year: '2025',
-    body: 'Fully funded graduate study at the Institute of Science Tokyo; one of 25 Indian nationals selected in 2025.',
+    body: 'Fully funded graduate study at the Institute of Science Tokyo; **one of 25 Indian nationals** selected in 2025.',
   },
 ];
 

@@ -70,10 +70,12 @@ function Pattern({ variant, caption }: { variant: 'route' | 'pipeline'; caption:
           {stops.map(([x, y]) => (
             <circle key={`${x}-${y}`} cx={x} cy={y} r="3.4" fill="#f2b84b" />
           ))}
-          <text x="14" y="20" fill="#ff6a4d" fontFamily="monospace" fontSize="9">— day 1</text>
-          <text x="14" y="33" fill="#5fbf8f" fontFamily="monospace" fontSize="9">— day 2</text>
+          <line x1="14" y1="17" x2="24" y2="17" stroke="#ff6a4d" strokeWidth="1.6" />
+          <text x="29" y="20" fill="#ff6a4d" fontFamily="monospace" fontSize="9">day 1</text>
+          <line x1="14" y1="30" x2="24" y2="30" stroke="#5fbf8f" strokeWidth="1.6" />
+          <text x="29" y="33" fill="#5fbf8f" fontFamily="monospace" fontSize="9">day 2</text>
         </svg>
-        <span className="absolute bottom-3 left-4 font-mono text-[0.68rem] text-faint">{caption}</span>
+        <span className="absolute bottom-3 left-4 font-mono text-[0.76rem] text-faint">{caption}</span>
       </div>
     );
   }

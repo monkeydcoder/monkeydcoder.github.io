@@ -54,7 +54,7 @@ export default function SiteNav() {
       <nav className="container flex h-16 items-center justify-between" aria-label="Main">
         <a href="#top" className="group flex min-h-[44px] items-center gap-2 whitespace-nowrap" onClick={() => setOpen(false)}>
           <span className="font-serif text-xl text-paper">{profile.name}</span>
-          <span className="hidden font-mono text-[0.68rem] text-faint transition-colors group-hover:text-accent sm:inline">
+          <span className="hidden font-mono text-[0.72rem] text-faint transition-colors group-hover:text-accent sm:inline">
             RL · Tokyo
           </span>
         </a>
@@ -65,7 +65,7 @@ export default function SiteNav() {
               <a
                 href={n.href}
                 aria-current={active === n.href ? 'true' : undefined}
-                className={`relative rounded-full px-3 py-2 text-sm transition-colors after:absolute after:inset-x-3 after:bottom-0.5 after:h-px after:origin-left after:bg-accent after:transition-transform after:duration-300 ${
+                className={`relative rounded-full px-3 py-2 text-[0.95rem] transition-colors after:absolute after:inset-x-3 after:bottom-0.5 after:h-px after:origin-left after:bg-accent after:transition-transform after:duration-300 ${
                   active === n.href ? 'text-paper after:scale-x-100' : 'text-muted after:scale-x-0 hover:text-paper'
                 }`}
               >
@@ -78,7 +78,7 @@ export default function SiteNav() {
               href={profile.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-white/15 px-3.5 text-sm text-paper transition-colors hover:border-accent hover:text-accent"
+              className="inline-flex min-h-[38px] items-center gap-1.5 rounded-full border border-white/15 px-3.5 text-[0.95rem] text-paper transition-colors hover:border-accent hover:text-accent"
             >
               <LuFileText aria-hidden="true" /> Résumé
             </a>

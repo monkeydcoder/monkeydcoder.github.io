@@ -1,5 +1,6 @@
 import { LuLock, LuArrowUpRight, LuCircleCheck } from 'react-icons/lu';
 import SectionHeading from '@/components/SectionHeading';
+import Rich from '@/components/Rich';
 import { research, profile } from '@/data/site';
 
 export default function Research() {
@@ -8,7 +9,9 @@ export default function Research() {
       <div className="container">
         <SectionHeading index="02" label="Research" title={research.title}>
           {research.intro.map((p) => (
-            <p key={p.slice(0, 24)}>{p}</p>
+            <p key={p.slice(0, 24)}>
+              <Rich text={p} />
+            </p>
           ))}
         </SectionHeading>
 
@@ -18,13 +21,13 @@ export default function Research() {
             <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent">
               <LuLock aria-hidden="true" />
             </span>
-            <p className="text-sm leading-relaxed text-muted sm:text-base">{research.status}</p>
+            <p className="text-[0.95rem] leading-relaxed text-muted sm:text-base">{research.status}</p>
           </div>
           <a
             href={profile.lab.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex shrink-0 items-center gap-1.5 self-start font-mono text-xs text-paper transition-colors hover:text-accent sm:self-center"
+            className="group inline-flex shrink-0 items-center gap-1.5 self-start font-mono text-[0.8rem] text-paper transition-colors hover:text-accent sm:self-center"
           >
             {profile.lab.name} <LuArrowUpRight className="link-arrow" aria-hidden="true" />
           </a>
@@ -37,7 +40,7 @@ export default function Research() {
               <dt className="sr-only">{s.label}</dt>
               <dd>
                 <span className="block font-serif text-4xl text-paper sm:text-5xl">{s.value}</span>
-                <span className="mt-2 block text-xs leading-snug text-faint sm:text-sm" aria-hidden="true">
+                <span className="mt-2 block text-[0.85rem] leading-snug text-faint sm:text-[0.95rem]" aria-hidden="true">
                   {s.label}
                 </span>
               </dd>
@@ -54,7 +57,7 @@ export default function Research() {
             >
               <div className="flex items-baseline gap-3 md:flex-col md:gap-1 md:pt-6">
                 <span className="font-mono text-sm text-accent">{st.step}</span>
-                <span className="font-mono text-xs uppercase tracking-[0.14em] text-faint">{st.period}</span>
+                <span className="font-mono text-[0.78rem] uppercase tracking-[0.14em] text-faint">{st.period}</span>
               </div>
               <article
                 className={`card p-6 sm:p-8 ${st.current ? 'border-accent/30 bg-gradient-to-br from-accent/[0.07] to-transparent' : ''}`}
@@ -68,13 +71,17 @@ export default function Research() {
                     </span>
                   )}
                 </div>
-                <p className="mt-4 leading-relaxed text-muted">{st.body}</p>
+                <p className="mt-4 text-[1.0625rem] leading-relaxed text-muted">
+                  <Rich text={st.body} />
+                </p>
                 {st.findings.length > 0 && (
                   <ul className="mt-5 space-y-2.5 border-t border-white/[0.06] pt-5">
                     {st.findings.map((f) => (
-                      <li key={f.slice(0, 24)} className="flex gap-3 text-sm leading-relaxed text-paper/90 sm:text-[0.95rem]">
+                      <li key={f.slice(0, 24)} className="flex gap-3 text-[0.98rem] leading-relaxed text-paper/90 sm:text-[1.02rem]">
                         <LuCircleCheck className="mt-[3px] shrink-0 text-jade" aria-hidden="true" />
-                        <span>{f}</span>
+                        <span>
+                          <Rich text={f} />
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -90,9 +97,11 @@ export default function Research() {
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {research.practice.map((p, i) => (
               <article key={p.title} className="reveal card p-6">
-                <p className="font-mono text-xs text-faint">{String(i + 1).padStart(2, '0')}</p>
+                <p className="font-mono text-[0.78rem] text-faint">{String(i + 1).padStart(2, '0')}</p>
                 <h4 className="mt-3 text-lg font-medium text-paper">{p.title}</h4>
-                <p className="mt-2 text-sm leading-relaxed text-muted sm:text-[0.95rem]">{p.body}</p>
+                <p className="mt-2 text-[0.98rem] leading-relaxed text-muted sm:text-[1.02rem]">
+                  <Rich text={p.body} />
+                </p>
               </article>
             ))}
           </div>
@@ -107,7 +116,7 @@ export default function Research() {
               </li>
             ))}
           </ul>
-          <p className="max-w-sm text-sm leading-relaxed text-faint lg:text-right">{research.seminar}</p>
+          <p className="max-w-sm text-[0.95rem] leading-relaxed text-faint lg:text-right">{research.seminar}</p>
         </div>
       </div>
     </section>

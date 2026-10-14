@@ -475,7 +475,7 @@ export default function GridWorld() {
     <figure className="card overflow-hidden p-4 sm:p-5">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
         <span className="eyebrow">MiniGrid · DoorKey</span>
-        <span className="flex items-center gap-3 font-mono text-[0.7rem] text-faint" aria-hidden="true">
+        <span className="flex items-center gap-3 font-mono text-[0.76rem] text-faint" aria-hidden="true">
           <span>step {String(steps).padStart(2, '0')}</span>
           <span>
             reward{' '}
@@ -500,7 +500,7 @@ export default function GridWorld() {
           }}
         />
       </div>
-      <ol className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-[0.7rem]">
+      <ol className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-2 font-mono text-[0.76rem]">
         {items.map((it, i) => (
           <li key={it.id} className="flex items-center gap-2">
             <span
@@ -517,7 +517,7 @@ export default function GridWorld() {
           </li>
         ))}
       </ol>
-      <figcaption className="mt-3 text-xs leading-relaxed text-faint">
+      <figcaption className="mt-3 text-[0.82rem] leading-relaxed text-faint">
         The reward only arrives after the whole chain. Scripted illustration of the sparse-reward problem my research
         studies.
       </figcaption>

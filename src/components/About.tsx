@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import SectionHeading from '@/components/SectionHeading';
+import Rich from '@/components/Rich';
 import { about, profile } from '@/data/site';
 
 export default function About() {
@@ -23,9 +24,11 @@ export default function About() {
           </div>
 
           <div className="reveal">
-            <div className="space-y-5 text-base leading-relaxed text-muted sm:text-[1.05rem]">
+            <div className="space-y-5 text-[1.0625rem] leading-relaxed text-muted sm:text-lg">
               {about.paragraphs.map((p) => (
-                <p key={p.slice(0, 24)}>{p}</p>
+                <p key={p.slice(0, 24)}>
+                  <Rich text={p} />
+                </p>
               ))}
             </div>
 
@@ -33,9 +36,9 @@ export default function About() {
               {about.facts.map((f) => (
                 <div key={f.label} className="grid grid-cols-[7.5rem_1fr] gap-4 py-3 sm:grid-cols-[9rem_1fr]">
                   <dt className="eyebrow pt-0.5">{f.label}</dt>
-                  <dd className="text-sm text-paper sm:text-base">
-                    {f.label === 'Lab' ? (
-                      <a href={profile.lab.url} target="_blank" rel="noopener noreferrer" className="link-underline">
+                  <dd className="text-[0.95rem] text-paper sm:text-base">
+                    {'href' in f && f.href ? (
+                      <a href={f.href} target="_blank" rel="noopener noreferrer" className="link-underline">
                         {f.value}
                       </a>
                     ) : (
@@ -46,7 +49,7 @@ export default function About() {
               ))}
             </dl>
 
-            <p className="mt-8 border-l-2 border-accent/60 pl-4 text-sm leading-relaxed text-muted">
+            <p className="mt-8 border-l-2 border-accent/60 pl-4 text-[0.95rem] leading-relaxed text-muted">
               {about.offTheClock}
             </p>
           </div>

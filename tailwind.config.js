@@ -19,9 +19,9 @@ module.exports = {
           700: '#1e232e',
           600: '#2a303d',
         },
-        paper: '#ece9e3',
-        muted: '#a4a7af',
-        faint: '#71757f',
+        paper: '#f3f1ec',
+        muted: '#bcbfc6',
+        faint: '#8b8f99',
         accent: {
           DEFAULT: '#ff6a4d',
           soft: '#ff8a72',

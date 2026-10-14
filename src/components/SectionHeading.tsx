@@ -14,7 +14,7 @@ export default function SectionHeading({ index, label, title, children }: Props)
         {label}
       </p>
       <h2 className="section-title mt-4 text-balance">{title}</h2>
-      {children && <div className="mt-6 space-y-4 text-base leading-relaxed text-muted sm:text-lg">{children}</div>}
+      {children && <div className="mt-6 space-y-4 text-[1.0625rem] leading-relaxed text-muted sm:text-lg lg:text-[1.2rem]">{children}</div>}
     </header>
   );
 }
