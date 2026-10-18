@@ -171,7 +171,7 @@ export const projects: Project[] = [
     ],
     tech: ['React', 'TypeScript', 'Material UI', 'Node.js', 'Express', 'Ollama', 'LLaMA 3'],
     links: [
-      { label: 'Code', href: 'https://github.com/monkeydcoder/ExamPrepAI', kind: 'code' },
+      { label: 'Code', href: 'https://github.com/monkeydcoder/EduMind-AI', kind: 'code' },
       {
         label: 'Demo video',
         href: 'https://www.loom.com/share/e604337fc4cf4cd2932a9fc64e80a56c',
