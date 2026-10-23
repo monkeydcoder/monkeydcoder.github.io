@@ -39,7 +39,7 @@ export default function Research() {
             <div key={s.label} className="bg-ink-900 p-5 sm:p-6">
               <dt className="sr-only">{s.label}</dt>
               <dd>
-                <span className="block font-serif text-4xl text-paper sm:text-5xl">{s.value}</span>
+                <span className="block font-serif text-[clamp(1.75rem,11vw,2.25rem)]/[2.5rem] text-paper sm:text-5xl">{s.value}</span>
                 <span className="mt-2 block text-[0.85rem] leading-snug text-faint sm:text-[0.95rem]" aria-hidden="true">
                   {s.label}
                 </span>

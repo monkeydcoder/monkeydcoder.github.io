@@ -25,7 +25,7 @@ export const profile = {
   glance: [
     { value: 'MEXT 2025', label: 'scholar, 1 of 25 from India' },
     { value: '3.83 / 4.5', label: 'M.S. GPA, first semester' },
-    { value: '~2,400', label: 'seeded RL training runs' },
+    { value: '6,000+', label: 'seeded RL training runs' },
   ],
   email: 'satyamsharma3002@gmail.com',
   github: 'https://github.com/monkeydcoder',
@@ -95,18 +95,29 @@ export const research = {
     },
     {
       step: '03',
-      period: 'Now',
+      period: 'Oct 2026',
       title: 'Does a discovered chain help an agent learn?',
-      body: "The current experiment tests whether automatically discovered chains speed up learning, and whether they beat flat memory where chains matter. It is a pre-registered benchmark of **about 4,300 runs and 52 billion environment steps**, planned across two of the lab's servers.",
+      body: "I moved the detector inside training. Once the PPO agent has some successful episodes, the detector finds the chain of events behind them, and progress along that chain earns a small reward bonus. I tested this in a **pre-registered experiment of 3,552 training runs** across 11 MiniGrid environments, 48 seeds each, over three and a half days on two of the lab's servers. Every run finished, and a second, independent scoring program agreed on every number.",
+      findings: [
+        'Inside training, the detector found the **correct chain in 48 of 48 runs** in each of five environments, and invented **no chain in any of 432 control runs**.',
+        'The discovered chain made PPO learn faster in **5 of 8** chain environments. In UnlockPickup and ObstructedMaze it **cut learning time roughly in half** (median 8.8M to 4.4M and 8.2M to 4.6M steps) and was faster on **47 of 48 seeds** in each.',
+        'Given the correct chain from the first step, PPO learned those two environments **6.5x and 7.5x faster**, and reached the success threshold in BlockedUnlockPickup in **48 of 48 runs**, where plain PPO never did. So turning a chain into a bonus works, and there is a clear gap left to close.',
+      ],
+    },
+    {
+      step: '04',
+      period: 'Now',
+      title: 'Closing the gap to a perfect chain',
+      body: "The chains the agent finds are almost always correct, yet the perfect chain, given from the first step, still helps much more. My leading explanation is timing: the agent's own chain only appears after its first successes, about 3M steps into UnlockPickup and ObstructedMaze, when an agent with the perfect chain has already learned them. I'm now writing up the results and running three follow-up analyses, declared before any result came in, to test this run by run. Then I plan to take the detector beyond MiniGrid to other kinds of observations.",
       findings: [],
       current: true,
     },
   ] satisfies ResearchStage[],
   stats: [
-    { value: '~2,400', label: 'seeded training runs' },
-    { value: '48', label: 'seeds per headline comparison' },
-    { value: '7 / 7', label: 'event chains recovered' },
-    { value: '32 / 32', label: 'runs reproduced bit for bit' },
+    { value: '6,000+', label: 'seeded training runs' },
+    { value: '~2x', label: 'faster learning than plain PPO in two hard environments' },
+    { value: '48 / 48', label: 'runs with the correct chain, in each of five environments' },
+    { value: '0 / 432', label: 'false chains in control runs' },
   ],
   practice: [
     {
