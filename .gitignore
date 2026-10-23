@@ -14,3 +14,6 @@ _originals/
 
 # OS
 .DS_Store
+
+# Résumé render output (the published copy is public/Satyam_Sharma_Resume.pdf)
+resume/cv.pdf

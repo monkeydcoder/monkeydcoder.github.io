@@ -37,6 +37,17 @@ public/
   images/         profile photo and project stills (pre-sized; the export has no image optimiser)
   videos/         Earth Docker demo
   Satyam_Sharma_Resume.pdf
+resume/           source of the résumé PDF (cv.html) and the scripts that build it
+```
+
+## Résumé
+
+`public/Satyam_Sharma_Resume.pdf` is generated from [`resume/cv.html`](resume/cv.html): two A4 pages set in Carlito.
+Edit the text there, then:
+
+```bash
+node resume/render.js       # needs Playwright with Chromium; fails if page 2 overflows
+python3 resume/finalize.py  # needs PyMuPDF; checks the PDF, sets its metadata, writes public/Satyam_Sharma_Resume.pdf
 ```
 
 ## Notes

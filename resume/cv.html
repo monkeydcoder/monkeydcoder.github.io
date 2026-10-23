@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Satyam Sharma CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400;1,700&display=block" rel="stylesheet">
+<style>
+  /* Source of public/Satyam_Sharma_Resume.pdf. Edit the text below, then run
+     `node resume/render.js && python3 resume/finalize.py` (see README).
+     Geometry: A4, 45pt side margins, Carlito 11pt, navy #1c3177.
+     Baseline offsets in Chromium for Carlito 11pt: line-height 14.4pt -> 10.25pt, 16.8pt -> 12.25pt;
+     Carlito Bold 12pt in 14.4pt -> 11.25pt. Margins below are derived from those. */
+  @page { size: A4; margin: 0; }
+  /* Laid out at 5x and printed at scale 0.2, so Chromium's whole-pixel line snapping becomes 0.15pt:
+     16.8pt leading is then exactly 112px and every line in a paragraph sits the same distance apart. */
+  html { zoom: 5; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Carlito', sans-serif; font-size: 11pt; color: #000;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    font-kerning: normal; hyphens: manual;
+  }
+  .page { position: relative; width: 594.96pt; height: 841.92pt; overflow: hidden; break-after: page; }
+  .page:last-child { break-after: auto; }
+  .flow { position: absolute; left: 45pt; right: 45.0pt; }
+  .page-1 .flow { top: 41.5pt; }
+  .page-2 .flow { top: 38.75pt; }
+  .pnum { position: absolute; right: 45pt; top: 795.65pt; line-height: 14.4pt; }
+
+  a { color: #1c3177; text-decoration: underline; text-decoration-thickness: 0.75pt; text-underline-offset: 1.6pt; }
+  b { font-weight: 700; }
+  i, .it { font-style: italic; }
+
+  .name { margin: 0; font-size: 22pt; line-height: 26pt; font-weight: 700; color: #1c3177; text-align: center; }
+  .tagline { margin-top: 0.65pt; line-height: 14.4pt; font-style: italic; color: #444; text-align: center; }
+  .contact { margin-top: 0.9pt; line-height: 14.4pt; text-align: center; }
+  .sep { color: #888; }
+
+  h2 {
+    margin: 17pt 0 0; padding-bottom: 2.4pt; border-bottom: 0.9pt solid #1c3177;
+    font-size: 12pt; line-height: 14.4pt; font-weight: 700; color: #1c3177; text-transform: uppercase; letter-spacing: 0;
+  }
+  h2.first { margin-top: 16.7pt; }
+
+  p { margin: 4.5pt 0 0; line-height: 16.8pt; text-align: justify; text-align-last: left; }
+  p + p { margin-top: 4pt; }
+
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12pt; line-height: 14.4pt; margin-top: 0; }
+  .row > .l { min-width: 0; }
+  .row > .r { white-space: nowrap; flex-shrink: 0; }
+  .muted { color: #444; }
+  h2 + .row { margin-top: 5.6pt; }
+  h2.rich + .row { margin-top: 7.7pt; }
+
+  /* Bullets stay in the inline flow (no positioning or floats), so the PDF stores each bullet's text
+     in reading order; positioned boxes would be painted, and so extracted, after everything else. */
+  .b { padding-left: 18.1pt; text-indent: -12.1pt; line-height: 16.8pt; text-align: justify; text-align-last: left; margin-top: 2.5pt; }
+  .b::before { content: '\2022'; display: inline-block; width: 12.1pt; text-indent: 0; color: #1c3177; }
+  .row + .b { margin-top: -1.2pt; }
+  .row.rich + .b { margin-top: -0.2pt; }
+  .b + .row { margin-top: 9.2pt; }
+
+  .skill { line-height: 14.4pt; margin-top: 3.9pt; }
+  h2 + .skill { margin-top: 5.6pt; }
+  h2.after-skill { margin-top: 18.1pt; }
+  a.lk { margin-left: 4pt; }
+  .nw { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<section class="page page-1"><div class="flow" id="f1">
+
+  <h1 class="name">SATYAM SHARMA</h1>
+  <div class="tagline">M.S. student in Reinforcement Learning, Institute of Science Tokyo | MEXT Scholar</div>
+  <div class="contact">Tokyo, Japan <span class="sep">&nbsp;|&nbsp;</span> <a href="mailto:satyamsharma3002@gmail.com">satyamsharma3002@gmail.com</a> <span class="sep">&nbsp;|&nbsp;</span> <a href="https://github.com/monkeydcoder">GitHub</a> <span class="sep">&nbsp;|&nbsp;</span> <a href="https://monkeydcoder.github.io/">Portfolio</a> <span class="sep">&nbsp;|&nbsp;</span> <a href="https://www.linkedin.com/in/satyam-sharma-24463522a/">LinkedIn</a></div>
+
+  <h2 class="first keep">Research Interests</h2>
+  <p>Reinforcement learning when feedback is rare or delayed. My research asks what an agent should remember from its own experience, and how it can discover which of its past events actually caused success, without anyone telling it what matters. I want to carry these questions into <b>adaptive decision-making systems and <span class="nw">LLM-based</span> agents</b>, with experiments careful enough to tell a genuine gain apart from a benchmark artifact.</p>
+  <p><b>Availability:</b> based in Tokyo; available part-time during term and full-time during university breaks.</p>
+
+  <h2 class="keep">Education</h2>
+  <div class="row keep"><span class="l"><b>Institute of Science Tokyo</b> (formerly Tokyo Institute of Technology)</span><span class="r">Apr 2026 – Mar 2028 (expected)</span></div>
+  <div class="row keep"><span class="l it">M.S., Industrial Engineering and Economics (Machine Learning and Reinforcement Learning)</span><span class="r it muted">GPA 3.83 / 4.5</span></div>
+  <div class="b">Ichise Laboratory (Prof. Ryutaro Ichise); research student in the same lab from Oct 2025 to Mar 2026.</div>
+  <div class="b">Coursework: Intelligent Systems Engineering; From Data Analytics to Machine Learning.</div>
+  <div class="row keep"><span class="l"><b>Sant Longowal Institute of Engineering and Technology (SLIET)</b>, India</span><span class="r">Jul 2021 – Jun 2025</span></div>
+  <div class="row keep"><span class="l it">B.E. (Honours), Computer Science and Engineering</span><span class="r it muted">CGPA 8.9 / 10</span></div>
+  <div class="b">Honours track in Optimization Techniques and Data Analytics.</div>
+
+  <h2 class="keep">Honors and Awards</h2>
+  <div class="row keep"><span class="l"><b>MEXT (Monbukagakusho) Scholarship</b>, Government of Japan</span><span class="r">Oct 2025 – Present</span></div>
+  <div class="b"><b>One of 25 Indian nationals</b> selected in 2025; fully funded master’s study and research at the Institute of Science Tokyo.</div>
+  <div class="row keep"><span class="l"><b>Institute Project Funding</b> (INR 50,000), SLIET</span><span class="r">Undergraduate</span></div>
+  <div class="b">Awarded for Earth Docker; the <b>only second-year team selected</b>, alongside final-year students.</div>
+
+  <h2 class="rich keep">Research Experience</h2>
+  <div class="row rich keep"><span class="l"><b>Graduate Researcher, Ichise Laboratory</b>, Institute of Science Tokyo</span><span class="r">Oct 2025 – Present</span></div>
+  <div class="row rich keep"><span class="l it">Thesis: memory and event discovery for sparse-reward reinforcement learning. Advisor: Prof. Ryutaro Ichise</span></div>
+  <div class="b">Studying <b>what an agent should remember when reward is rare</b> and nobody specifies what matters. Built a modular PPO research codebase (Python, PyTorch) in which knowledge-graph, flat episodic and count-based memories plug into one <b>potential-based reward-shaping</b> interface, so they are compared fairly without changing the optimal policy.</div>
+  <div class="b">Ran <b>~2,400 seeded runs</b> on MiniGrid: a memory bonus raised DoorKey-8x8 from <b>3 to 22+ of 24</b> successful seeds, and a hand-written graph memory beat flat memory on DoorKey-6x6 (48 seeds, p = 0.0026) but not elsewhere. This motivated letting the agent <b>discover structure instead of having it written by hand</b>.</div>
+  <div class="b">Designed a <b>domain-agnostic event detector</b>, with no knowledge of keys or doors, that confirms each candidate event by <b>counterfactual replay</b>. During ordinary training it found the <b>correct event chain in 48 of 48 runs</b> in each of five games and <b>invented none across 432 control runs</b>.</div>
+  <div class="b">Designed and ran a <b>pre-registered benchmark of 4,308 runs</b> on two shared lab servers (3,552 scored runs over 11 games and 7 methods with 48 paired seeds, plus tuning; Holm-corrected tests). The discovered chain <b>roughly halved PPO’s training time</b> on UnlockPickup and ObstructedMaze (faster on 47 of 48 seeds), and a perfect chain made it up to <b>7.5x faster</b>.</div>
+  <div class="b">Reported the negative half with the same rigor: <b>flat memory was faster in 6 of 8 games</b>. The gap to the perfect-chain ceiling points to a testable cause (the chain arrives late), now being checked with analyses declared before any result.</div>
+  <div class="b">Showed with a test that the public code of <b>VACERL (ECML PKDD 2024)</b>, the closest prior method, never trains its learner on its own discovered bonus.</div>
+  <div class="b"><b>Retracted my own headline result</b> after a failed reproducibility check exposed an episode-boundary bug worth ~24,000 steps of false advantage; fixed and re-validated it on fresh seeds. In the latest benchmark, <b>two independent scoring programs agreed on every number</b>.</div>
+
+  <h2 class="rich keep">Projects</h2>
+  <div class="row rich keep"><span class="l"><b>EduMind AI</b>, LLM exam-preparation tutor <a class="lk" href="https://github.com/monkeydcoder/EduMind-AI">Code</a> <a class="lk" href="https://www.loom.com/share/e604337fc4cf4cd2932a9fc64e80a56c">Demo</a></span><span class="r">2025</span></div>
+  <div class="b">Built a tutor for <b>8 Indian competitive exams</b> (UPSC, GATE, NEET and others) that runs entirely on a student’s laptop: locally served <b>LLaMA 3.1/3.2</b> (Ollama) behind a React/TypeScript and Node.js stack, covering Q&amp;A, practice tests and quizzes.</div>
+  <div class="b">Added <b>essay evaluation with structured feedback</b> and a 30-minute cache that skips repeat model calls.</div>
+  <div class="row rich keep"><span class="l"><b>Reel Vault</b>, budget-aware multimodal LLM pipeline (personal tool, code private)</span><span class="r">2026</span></div>
+  <div class="b">Turns saved Instagram reels into a searchable, mapped knowledge base: one “5 best ramen spots” post becomes five place cards pinned on a map.</div>
+  <div class="b">Extraction <b>escalates only when it must</b> (caption, then Whisper, then Gemini vision on frames), with daily caps checked before every paid call, so it <b>runs entirely on free tiers</b>, with <b>293 automated tests</b>.</div>
+  <div class="row rich keep"><span class="l"><b>Earth Docker</b>, autonomous agricultural robot <a class="lk" href="https://drive.google.com/file/d/1Da1-jJAbpxZg9HS9e9umZE9I9zp_5iUM/view">Video</a></span><span class="r">Undergraduate</span></div>
+  <div class="b">Field robot for early pest detection: trained a <b>ResNet152V2 to 98% accuracy</b> on diseased vs healthy cotton plants; with a robotics-club team, ran perception and <b>RP-LiDAR navigation on a Raspberry Pi 4</b>.</div>
+
+  <h2 class="keep">Technical Skills</h2>
+  <div class="skill"><b>Reinforcement learning: PPO</b>, DQN, SAC, reward shaping, Stable-Baselines3, Gymnasium, MiniGrid</div>
+  <div class="skill"><b>Machine learning: PyTorch</b>, NumPy, Pandas, scikit-learn, TensorFlow / Keras</div>
+  <div class="skill"><b>LLMs:</b> Ollama, LLaMA 3, Gemini API, Whisper; cost-aware LLM pipelines; learning post-training (SFT, GRPO)</div>
+  <div class="skill"><b>Research methods: Pre-registration</b>, paired-seed tests (Holm), independent re-scoring, Linux servers, MLflow</div>
+  <div class="skill"><b>Software:</b> Python (primary), TypeScript, C/C++; FastAPI, React, Node.js, SQLite; Git; Docker (basic)</div>
+  <div class="skill"><b>Languages:</b> English (fluent), Japanese (basic, around JLPT N4)</div>
+
+  <h2 class="keep after-skill">Leadership</h2>
+  <div class="row keep"><span class="l"><b>Convenor, Robotics Club</b>, SLIET</span><span class="r">Feb 2022 – Jul 2025</span></div>
+  <div class="b">Led drone, line-following robot and hovercraft projects; represented the club at IIT-BHU Technex 2023 and coordinated the inter-college Robozar events at TechFest 2023.</div>
+
+</div><div class="pnum">1</div></section>
+
+<section class="page page-2"><div class="flow" id="f2"></div><div class="pnum">2</div></section>
+
+<script>
+  // Move whole blocks that would cross the bottom limit onto page 2. Headings and entry rows
+  // stay with the block after them, so a page never ends on a heading or a lone title line.
+  const LIMIT_PT = 776;            // bottom edge for any block, measured from the page top
+  const OFF = { b: 12.25, p: 12.25, row: 10.25, skill: 10.25, h2: 11.25 };
+  function kind(el) { return el.classList.contains('b') ? 'b' : el.classList.contains('row') ? 'row' : el.classList.contains('skill') ? 'skill' : el.tagName === 'H2' ? 'h2' : 'p'; }
+  async function paginate() {
+    await document.fonts.ready;
+    const f1 = document.getElementById('f1'), f2 = document.getElementById('f2');
+    const page1 = f1.closest('.page').getBoundingClientRect();
+    const top1 = page1.top, LIMIT = LIMIT_PT * page1.height / 841.92;   // works in any zoom coordinate space
+    const kids = [...f1.children];
+    let cut = kids.findIndex((el) => el.getBoundingClientRect().bottom - top1 > LIMIT);
+    if (cut === -1) { window.__layout = { ok: true, moved: 0 }; return; }
+    while (cut > 0 && kids[cut - 1].classList.contains('keep')) cut--;
+    const moving = kids.slice(cut);
+    moving.forEach((el) => f2.appendChild(el));
+    const first = moving[0];
+    first.style.marginTop = (12.25 - OFF[kind(first)]) + 'pt';
+    const top2 = f2.closest('.page').getBoundingClientRect().top;
+    const overflow = [...f2.children].some((el) => el.getBoundingClientRect().bottom - top2 > LIMIT);
+    window.__layout = { ok: !overflow, moved: moving.length, firstMoved: first.textContent.slice(0, 60) };
+  }
+  window.__ready = paginate();
+</script>
+</body>
+</html>
